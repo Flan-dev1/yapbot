@@ -50,7 +50,6 @@ A Discord bot that yaps random lines and generates AI-powered lore using Google 
 - [discord.js](https://discord.js.org/)
 - [@google/generative-ai](https://www.npmjs.com/package/@google/generative-ai)
 - [dotenv](https://www.npmjs.com/package/dotenv)
-- [openai](https://www.npmjs.com/package/openai)
 
 ## License
 
