@@ -1,10 +1,10 @@
 # yapbot
 
-A Discord bot that yaps random lines and generates AI-powered lore using Google Gemini. Reacting to the bot's messages increases a combo counter, unlocking special message styles.
+A Discord bot that yaps random lines and gives AI-generated lore using Google Gemini. Reacting to the bot's messages increases a combo counter.
 
 ## Features
 
-- Random "yap" messages with combo counter and style upgrades
+- Random "yap" messages with a reaction combo counter
 - AI-generated lore using Google Gemini API
 - Responds to `!yap` and `!lore` commands
 - Combo system triggered by message reactions
