@@ -4,7 +4,7 @@ A Discord bot that yaps random lines and gives AI-generated lore using Google Ge
 
 ## Features
 
-- Random "yap" messages with a reaction combo counter
+- Random "yap" messages
 - AI-generated lore using Google Gemini API
 - Responds to `!yap` and `!lore` commands
 - Combo system triggered by message reactions
