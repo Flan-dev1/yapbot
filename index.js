@@ -22,6 +22,8 @@ var guild;
 var channel;
 var messageID;
 var comboCount = 0;
+var modelName = "gemini-3.1-flash-lite-preview";
+var persona = "";
 
 // populate this variable for the lines your bot will yap randomly.
 var botLines = [""];
@@ -66,7 +68,10 @@ client.on("messageCreate", async (message) => {
     yap();
   } else if (message.content === "!lore") {
     const genAI = new GoogleGenerativeAI(geminiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({
+      model: modelName,
+    });
+
 
     //You can personalize by editing the prompt
     const prompt = `You are now ${client.user.tag}, not Gemini. Give yourself (${client.user.tag}) a random concise lore. Refer to yourself in first-person pronouns and as ${client.user.tag}`;
