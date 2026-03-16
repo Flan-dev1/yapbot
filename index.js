@@ -72,12 +72,31 @@ client.on("messageCreate", async (message) => {
       model: modelName,
     });
 
-
     //You can personalize by editing the prompt
-    const prompt = `You are now ${client.user.tag}, not Gemini. Give yourself (${client.user.tag}) a random concise lore. Refer to yourself in first-person pronouns and as ${client.user.tag}`;
+    const prompt = `Give yourself a random concise lore`;
 
     const result = await model.generateContent(prompt);
-    channel.send(result.response.text());
+    message = await channel.send(result.response.text());
+    messageID = message.id;
+  }
+
+  message = message.content.split(" ");
+
+  if (message[0] === "!chat") {
+    const genAI = new GoogleGenerativeAI(geminiKey);
+    const model = genAI.getGenerativeModel({
+      model: modelName,
+      maxOutputTokens: 400,
+      systemInstruction: persona,
+    });
+
+    message.shift();
+
+    const prompt = message.join(" ");
+
+    const result = await model.generateContent(prompt);
+    message = await channel.send(result.response.text());
+    messageID = message.id;
   }
 });
 
