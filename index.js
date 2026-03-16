@@ -23,7 +23,7 @@ var channel;
 var messageID;
 var comboCount = 0;
 var modelName = "gemini-3.1-flash-lite-preview";
-var persona = "";
+var persona = process.env.PERSONA;
 
 // populate this variable for the lines your bot will yap randomly.
 var botLines = [""];
@@ -86,9 +86,10 @@ client.on("messageCreate", async (message) => {
     const genAI = new GoogleGenerativeAI(geminiKey);
     const model = genAI.getGenerativeModel({
       model: modelName,
-      maxOutputTokens: 400,
       systemInstruction: persona,
     });
+    
+    model.generationConfig.maxOutputTokens = process.env.MAX_TOKENS;
 
     message.shift();
 
